@@ -1,0 +1,34 @@
+﻿@model Tuple<Flight, Seat>
+@{
+    ViewBag.Title = $"{ViewBag.Action}";
+}
+<body style="background-color: #38598b;">
+    <div>
+        @if (ViewBag.Status == "Pending")
+        {
+            <h2>Ваш билет успешно забронирован!</h2>
+        }
+        else if (ViewBag.Status == "Paid")
+        {
+            <h2>Ваш билет успешно куплен!</h2>
+        }
+
+
+        <h2>Информация о рейсе:</h2>
+        <ul>
+            <li>Город отправления: @Model.Item1.DepartureCity.Name</li>
+            <li>Город прибытия: @Model.Item1.ArrivalCity.Name</li>
+            <li>Дата отправления: @Model.Item1.DepartureDate</li>
+            <li>Дата прибытия: @Model.Item1.ArrivalDate</li>
+            <li>Номер самолета: @Model.Item1.Airplane.AirplaneNumber</li>
+            <li>Номер места: @Model.Item2.SeatNumber</li>
+        </ul>
+
+        <div class="col-md-12">
+            <button class="btn btn-danger" onclick="location.href='@Url.Action("Index", "Home")'">На главную</button>
+        </div>
+    </div>
+</body>
+
+
+

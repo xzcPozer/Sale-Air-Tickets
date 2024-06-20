@@ -1,0 +1,29 @@
+version: '3.4'
+
+networks:
+  appnetwork: 
+
+services:
+  Flightsdb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=1K123kfwss657@
+    ports:
+      - "8002:1433"
+    networks:
+     - appnetwork
+
+  saleairtickets:
+    build:
+      context: .
+      dockerfile: SaleAirTickets/Dockerfile
+    ports:
+      - "8001:80"
+    depends_on:
+      - Flightsdb
+    networks:
+     - appnetwork
+
+  
+  

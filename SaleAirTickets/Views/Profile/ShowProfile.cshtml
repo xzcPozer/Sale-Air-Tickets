@@ -1,0 +1,94 @@
+﻿@model User
+
+@{
+    ViewBag.Title = $"{ViewBag.Action}";
+}
+
+<style>
+    body {
+        background-color: #233142;
+    }
+
+    .label-color {
+        color: #a0a0a0;
+    }
+
+    .booking-frame {
+        background-color: #cbd5e1;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .client-frame {
+        background-color: #cbd5e1;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="booking-frame">
+                    <h2>Бронирования</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Дата бронирования</th>
+                                <th>Номер самолета</th>
+                                <th>Цена</th>
+                                <th>Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var booking in ViewBag.Bookings)
+                            {
+                                <tr>
+                                    <td>@booking.BookingDate</td>
+                                    <td>@booking.Flight.Airplane.AirplaneNumber</td>
+                                    <td>@booking.TotalPrice.ToString("C")</td>
+                                    <td>@booking.Status</td>
+                                    @if (booking.Status == "Pending")
+                                    {
+                                        <form asp-controller="Payment" asp-action="Add" method="post">
+                                            <input type="hidden" name="bookingId" value="@booking.BookingId" />
+                                            <input type="hidden" name="totalPrice" value="@booking.TotalPrice" />
+                                        <td><button type="submit" class="btn btn-success">Оплатить</button></td>
+                                        </form>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="client-frame">
+                    <h2>Данные пользователя</h2>
+                    <dl class="dl-horizontal">
+                        <dt>Имя</dt>
+                        <dd>@Model.UserName</dd>
+                        <dt>Фамилия</dt>
+                        <dd>@Model.FirstName</dd>
+                        <dt>Отчество</dt>
+                        <dd>@Model.LastName</dd>
+                        <dt>Электронная почта</dt>
+                        <dd>@Model.Email</dd>
+                        <dt>Серия и номер паспорта</dt>
+                        <dd>@Model.PassportNumber</dd>
+                    </dl>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-danger" onclick="location.href='@Url.Action("EnterTheProfile", "Profile")'">Выйти</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

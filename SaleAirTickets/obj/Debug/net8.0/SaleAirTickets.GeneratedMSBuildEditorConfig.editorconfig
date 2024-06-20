@@ -1,0 +1,67 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SaleAirTickets
+build_property.RootNamespace = SaleAirTickets
+build_property.ProjectDir = D:\ИСПО\3 курс\ПП\BackUp\SaleAirTickets2\SaleAirTickets\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\ИСПО\3 курс\ПП\BackUp\SaleAirTickets2\SaleAirTickets
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Booking/GetSuccessPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xHZXRTdWNjZXNzUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Payment/SuccessPendingPaid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxTdWNjZXNzUGVuZGluZ1BhaWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Profile/LogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxMb2dJbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Profile/ShowProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxTaG93UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/User/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ИСПО/3 курс/ПП/BackUp/SaleAirTickets2/SaleAirTickets/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-crwoc7cy9u

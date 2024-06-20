@@ -1,0 +1,183 @@
+﻿@model List<Flight>
+@{
+    ViewData["Title"] = "Sale air tickets";
+}
+
+<style>
+	.flex-row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.form-field {
+		margin-right: 20px;
+		flex: 1;
+	}
+
+	.form-actions {
+		margin-left: auto;
+	}
+
+		.form-actions button, .form-actions a {
+			margin-right: 10px;
+		}
+	/* стили для верхней части страницы */
+	.header {
+		background-color: #e3e3e3;
+		padding: 15px;
+		border-bottom: 1px solid #e3e3e3;
+	}
+
+		.header .nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+			.header .nav a {
+				color: #337ab7;
+				text-decoration: none;
+				margin-right: 20px;
+			}
+
+				.header .nav a.active {
+					color: #e3e3e3;
+					background-color: #337ab7;
+					padding: 5px 10px;
+					border-radius: 5px;
+				}
+
+	/* стили для фона сайта */
+	body {
+		background-color: #233142;
+	}
+
+	/* стили для полей ввода и кнопок */
+	.search-form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+		background-color: #cbd5e1;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+
+		.search-form .form-group {
+			margin-right: 20px;
+		}
+
+		.search-form label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		.search-form select {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #f8fafc;
+			border-radius: 5px;
+		}
+
+		.search-form input[type="date"] {
+			padding: 10px;
+			border: 1px solid #f8fafc;
+			border-radius: 5px;
+		}
+
+	/* стили для вывода списка рейсов */
+	.flights-list {
+		background-color: #cbd5e1;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		margin-top: 40px;
+	}
+</style>
+
+<body>
+
+	<!-- поля ввода и кнопки для поиска рейсов -->
+	<div class="search-form">
+		<form asp-controller="Home" asp-action="Search" method="get">
+			<div class="form-group flex-row">
+				<div class="form-field">
+					<label for="departure-city">Вылет из:</label>
+					<select id="departure-city" name="departureCityId">
+						<option value="">Выберите город</option>
+						@foreach (var city in ViewBag.Cities)
+						{
+							<option value="@city.CityId">@city.Name</option>
+						}
+					</select>
+				</div>
+				<div class="form-field">
+					<label for="arrival-city">Прилет в:</label>
+					<select id="arrival-city" name="arrivalCityId">
+						<option value="">Выберите город</option>
+						@foreach (var city in ViewBag.Cities)
+						{
+							<option value="@city.CityId">@city.Name</option>
+						}
+					</select>
+				</div>
+				<div class="form-field">
+					<label for="departure-date">Дата вылета:</label>
+					<input type="date" id="departure-date" name="departureDate">
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-outline-primary">Найти</button>
+					<a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">Сброс</a>
+				</div>
+			</div>
+
+			@if (!ViewData.ModelState.IsValid)
+			{
+				<div class="alert alert-danger" role="alert">
+					Пожалуйста, выберите все поля для поиска.
+				</div>
+			}
+		</form>
+	</div>
+
+	<!-- место для вывода списка рейсов -->
+	<div class="flights-list">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Город отправления</th>
+					<th>Город прибытия</th>
+					<th>Дата отправления</th>
+					<th>Дата прибытия</th>
+					<th>Название самолета</th>
+					<th>Цена эконом класса</th>
+					<th>Цена бизнес класса</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var flight in Model)
+				{
+					<tr>
+						<td>@flight.DepartureCity.Name</td>
+						<td>@flight.ArrivalCity.Name</td>
+						<td>@flight.DepartureDate</td>
+						<td>@flight.ArrivalDate</td>
+						<td>@flight.Airplane.AirplaneNumber</td>
+						<td>@flight.EconomyClassPrice</td>
+						<td>@flight.BuisnessClassPrice</td>
+						<td>
+							<a asp-controller="User" asp-action="BuyTicket" asp-route-flightId="@flight.FlightId" class="btn btn-outline-primary">Купить</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</body>
+

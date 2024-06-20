@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaleAirTickets", "SaleAirTickets\SaleAirTickets.csproj", "{0FBB9F3C-AFC1-4B37-B070-13CB10A1EAEE}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CF58AD3E-A1CD-4DA4-963A-FDEE26F223CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FBB9F3C-AFC1-4B37-B070-13CB10A1EAEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBB9F3C-AFC1-4B37-B070-13CB10A1EAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBB9F3C-AFC1-4B37-B070-13CB10A1EAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBB9F3C-AFC1-4B37-B070-13CB10A1EAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF58AD3E-A1CD-4DA4-963A-FDEE26F223CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF58AD3E-A1CD-4DA4-963A-FDEE26F223CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF58AD3E-A1CD-4DA4-963A-FDEE26F223CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF58AD3E-A1CD-4DA4-963A-FDEE26F223CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA0F9602-B408-43FC-BE35-19B3D158FAE3}
+	EndGlobalSection
+EndGlobal

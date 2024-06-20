@@ -1,0 +1,84 @@
+﻿@model User
+@{
+    ViewBag.Title = $"{ViewBag.Action}";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Вход в профиль</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #233142;
+        }
+
+        .label-color {
+            color: #a0a0a0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .btn:hover {
+                background-color: #3e8e41;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="label-color">Вход в профиль</h2>
+        <form asp-controller="Profile" asp-action="LogIn" method="post">
+            <div class="form-group">
+                <label for="FirstName" class="label-color">Введите фамилию:</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="UserName" class="label-color">Введите имя:</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Patronymic" class="label-color">Введите отчество:</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="PassportNumber" class="label-color">Введите серию и номер паспорта (без пробелов):</label>
+                <input asp-for="PassportNumber" class="form-control" />
+                <span asp-validation-for="PassportNumber" class="text-danger"></span>
+            </div>
+            <button class="btn">Войти</button>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </form>
+    </div>
+</body>

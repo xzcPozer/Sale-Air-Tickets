@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = $"{ViewBag.Action}";
+}
+<body style="background-color: #38598b;">
+    <div>
+        <h1>Ваш билет успешно оплачен!</h1>
+        <div class="col-md-12">
+            <button class="btn btn-danger" onclick="location.href='@Url.Action("Index", "Home")'">На главную</button>
+        </div>
+    </div>
+</body>

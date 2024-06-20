@@ -1,0 +1,112 @@
+﻿@model User
+@{
+    ViewBag.Title = $"{ViewBag.Action}";
+}
+
+@Html.ValidationSummary(true)
+
+<h2>@ViewBag.Action</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airplane Seat Selection</title>
+</head>
+
+<body style="background-color: #38598b;">
+    
+    <div class="booking-form">
+        <h2>Данные летящего</h2>
+        @if (ViewBag.ErrorMessage != null)
+             {
+                <div class="text-danger">@ViewBag.ErrorMessage</div>
+             }
+        <form id = "userForm" asp-controller="User" asp-action="Add" method="post">
+             <div asp-validation-summary="All" class="text-danger"></div>
+            <label for="FirstName" class="label-color">Введите фамилию:</label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+
+            <label for="UserName" class="label-color">Введите имя:</label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+
+            <label for="LastName" class="label-color">Введите отчество:</label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
+            <label for="Email" class="label-color">Введите почту:</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <label for="PassportNumber" class="label-color">Введите серию и номер паспорта(без пробелов):</label>
+            <input asp-for="PassportNumber" class="form-control" />
+            <span asp-validation-for="PassportNumber" class="text-danger"></span>
+
+            <input type="hidden" value="@ViewBag.FlightId" name="FlightId" />
+        </form>
+    </div>
+
+    <h3 class="textCenter">Выберите место</h3>
+
+    @{ int rowCounter = 0; }
+        @foreach (var seat in ViewBag.Seats)
+        {
+
+            if(rowCounter % 30 == 0)
+            {
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+            }
+
+            if (rowCounter % 10 == 0)
+            {
+                    @:</div><div class="row">
+            }
+
+            @if (seat.IsAvailable)  
+            {
+                @if (seat.ClassType == "Economy")
+                {
+                    <div class="seat" data-seat="@seat.SeatId">@seat.SeatNumber</div>
+                }
+                else
+                {
+                    <div class="businessSeat" data-seat="@seat.SeatId">@seat.SeatNumber</div>
+                }
+                        
+            }
+            else
+            {
+                <div class="bookSeat" data-seat="@seat.SeatId">@seat.SeatNumber</div>
+            }
+            rowCounter++;
+        }
+        <div class="legend">
+            <span style="background-color: green; border-radius: 50%; width: 20px; height: 20px; display: inline-block; margin-top: 5px;"></span> свободное место
+            <span style="background-color: gray; border-radius: 50%; width: 20px; height: 20px; display: inline-block; margin-top: 5px;"></span> забронированное место
+            <span style="background-color: yellow; border-radius: 50%; width: 20px; height: 20px; display: inline-block; margin-top: 5px;"></span> бизнес класс
+        </div>
+
+        <div id="error-message" style="display: none;" class="error-message"> Выберите сиденье</div>
+
+    <div class="buttons">
+        <button id="book-button">Забронировать</button>
+        <button id="buy-button">Купить</button>
+        <button onclick="location.href='@Url.Action("Index", "Home")'">Отмена</button>
+    </div>
+</body>
+
+                
+@section Scripts {
+    <script src="~/js/JSscript.js"></script>
+    <script>
+
+        var addUserUrl = '@Url.Action("Add", "User")';
+        var changeStatusUrl = '@Url.Action("ChangeStatus", "Seat")';
+        var addBookingUrl = '@Url.Action("Add", "Booking")';
+        var addPaymentUrl = '@Url.Action("Add", "Payment")';
+        var getSuccessInfo = '@Url.Action("GetSuccessPage", "Booking")';
+    </script>
+    
+}

@@ -1,0 +1,55 @@
+name: dockercompose1515889045604804749
+services:
+  Flightsdb:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: 1K123kfwss657@
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      appnetwork: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "8002"
+        protocol: tcp
+  saleairtickets:
+    build:
+      context: D:\ИСПО\3 курс\ПП\BackUp\SaleAirTickets2
+      dockerfile: SaleAirTickets/Dockerfile
+    depends_on:
+      Flightsdb:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    networks:
+      appnetwork: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8001"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\timyr\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\timyr\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  appnetwork:
+    name: dockercompose1515889045604804749_appnetwork
